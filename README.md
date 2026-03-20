@@ -1,6 +1,6 @@
 <!-- AI assisted development -->
 
-# Know your team — CN Founder's Office
+# Know Your Team — CN Founder's Office
 
 A static, framework-free **team directory** (CloudNexus) with search, grouped sections, and responsive profile cards. Built with HTML, CSS, and JavaScript.
 

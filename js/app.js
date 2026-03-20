@@ -1,6 +1,6 @@
 // AI assisted development
 /**
- * Know your team (CN Founder's Office) — data, search, and render.
+ * Know Your Team (CN Founder's Office) — data, search, and render.
  * Groups: Leadership, Technology (Founder's Office), Revenue Operations.
  */
 
