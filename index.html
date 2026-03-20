@@ -60,7 +60,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/styles.css?v=3" />
+    <link rel="stylesheet" href="css/styles.css?v=4" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to directory</a>
@@ -102,7 +102,13 @@
     </main>
 
     <footer class="site-footer">
-      <p><span class="site-footer__brand">CloudNexus</span> · Internal directory</p>
+      <div class="site-footer__inner">
+        <p class="site-footer__primary">
+          <span class="site-footer__brand">CloudNexus</span>
+          <span class="site-footer__rule" aria-hidden="true"></span>
+          <span class="site-footer__chip" title="Not for external distribution">Internal directory</span>
+        </p>
+      </div>
     </footer>
 
     <script src="js/app.js?v=3" defer></script>
