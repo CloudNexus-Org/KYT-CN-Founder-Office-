@@ -37,14 +37,19 @@ python3 -m http.server 8080
 │   └── styles.css  # Layout (Grid/Flexbox), cards, search, responsive rules
 ├── js/
 │   └── app.js      # Employee data, filtering, rendering
+├── .github/
+│   └── workflows/
+│       └── deploy-github-pages.yml   # CI: deploy to Pages on push to main
 └── README.md
 ```
 
-## Deploy on GitHub Pages
+## Deploy on GitHub Pages (GitHub Actions)
 
-1. **Create a new repository** on GitHub named exactly **`employee-directory`** (public or private with GitHub Pro for private Pages, per GitHub policy).
+This repo includes a workflow **Deploy to GitHub Pages** (`.github/workflows/deploy-github-pages.yml`). It runs on every **push to `main`** and on **manual dispatch** (Actions tab → run workflow).
 
-2. **Push this code** to the `main` branch (replace `YOUR_USERNAME` and use your preferred remote URL):
+1. **Create a new repository** on GitHub named exactly **`employee-directory`** (public, or private with a plan that supports private Pages).
+
+2. **Push this code** to the `main` branch (replace `YOUR_USERNAME`):
 
 ```bash
 cd /path/to/this/project
@@ -56,20 +61,29 @@ git remote add origin https://github.com/YOUR_USERNAME/employee-directory.git
 git push -u origin main
 ```
 
-3. **Enable GitHub Pages**  
+3. **Turn on GitHub Pages with Actions**  
    - Repo → **Settings** → **Pages**  
-   - **Source**: Deploy from branch  
-   - **Branch**: `main`  
-   - **Folder**: `/ (root)`  
-   - Save  
+   - Under **Build and deployment** → **Source**, choose **GitHub Actions** (not “Deploy from a branch”).  
+   - The first successful run of **Deploy to GitHub Pages** will publish the site.
 
-4. After the workflow finishes (usually within a minute or two), the site will be available at:
+4. If prompted, approve the **`github-pages`** environment the first time (Settings → Environments).
+
+5. After the workflow finishes, the site will be at:
 
 ```text
 https://YOUR_USERNAME.github.io/employee-directory/
 ```
 
 Replace `YOUR_USERNAME` with your GitHub username.
+
+### Workflow details
+
+| Trigger | When |
+|--------|------|
+| `push` to `main` | Automatic deploy |
+| `workflow_dispatch` | Manual run from the **Actions** tab |
+
+The workflow copies only publishable assets into `_site` (`index.html`, `css/`, `js/`, `favicon.svg`) and uploads that folder—no build step required.
 
 ## Updating employee data
 
