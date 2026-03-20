@@ -293,7 +293,7 @@
     if (!searchStatus) return;
     const total = EMPLOYEES.length;
     if (!query.trim()) {
-      searchStatus.textContent = `Showing all ${total} team members.`;
+      searchStatus.textContent = `Showing all ${total} CloudNexus team members.`;
       return;
     }
     if (filtered.length === 0) {

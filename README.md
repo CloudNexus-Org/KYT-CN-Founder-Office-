@@ -12,7 +12,7 @@ A static, framework-free **employee directory** with search, grouped sections, a
 - **Google Fonts**: Plus Jakarta Sans  
 - Placeholder **profile images** (generated initials via [DiceBear](https://www.dicebear.com/) when no photo URL is set)  
 - Accessible basics: skip link, live search status, semantic sections  
-- **Favicon** (`favicon.svg`) and **SEO / Open Graph** meta tags in `index.html`  
+- **CloudNexus** branding: dark theme (black / `#00AEEF` / white), logo in header and as favicon (`assets/cloudnexus-logo.png`), **SEO / Open Graph** meta tags in `index.html`  
 
 ## Local setup
 
@@ -32,7 +32,8 @@ python3 -m http.server 8080
 
 ```
 ├── index.html      # Markup, meta tags, font links
-├── favicon.svg     # Site icon
+├── assets/
+│   └── cloudnexus-logo.png   # Brand mark (header + favicon)
 ├── css/
 │   └── styles.css  # Layout (Grid/Flexbox), cards, search, responsive rules
 ├── js/
@@ -84,7 +85,7 @@ Replace `YOUR_USERNAME` with your GitHub username.
 | `push` to `main` | Automatic deploy |
 | `workflow_dispatch` | Manual run from the **Actions** tab |
 
-The workflow copies only publishable assets into `_site` (`index.html`, `css/`, `js/`, `favicon.svg`) and uploads that folder—no build step required.
+The workflow copies only publishable assets into `_site` (`index.html`, `css/`, `js/`, `assets/`) and uploads that folder—no build step required.
 
 ### Troubleshooting
 

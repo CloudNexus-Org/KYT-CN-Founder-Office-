@@ -30,8 +30,8 @@ jobs:
       - name: Prepare site bundle
         run: |
           mkdir -p _site
-          cp index.html favicon.svg _site/
-          cp -r css js _site/
+          cp index.html _site/
+          cp -r css js assets _site/
 
       # configure-pages omitted: it calls GET /repos/.../pages and returns 404 until
       # Settings → Pages → Source is set to "GitHub Actions". This static site
