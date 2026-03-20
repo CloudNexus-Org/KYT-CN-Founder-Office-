@@ -459,10 +459,10 @@ body {
 .site-footer__chip {
   display: inline-block;
   padding: 0.35rem 0.75rem;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--color-text-muted);
   border: 1px solid rgba(0, 174, 239, 0.35);
   border-radius: 999px;
