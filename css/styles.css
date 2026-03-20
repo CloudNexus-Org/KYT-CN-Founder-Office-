@@ -347,6 +347,28 @@ body {
   width: 100%;
 }
 
+/* Parallel columns when two (or more) team clusters sit under the same parent (e.g. CTO). */
+.org-subtree__children:has(> .org-cluster:nth-child(2)) {
+  align-items: stretch;
+  justify-content: center;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.org-subtree__children:has(> .org-cluster:nth-child(2)) > .org-cluster {
+  flex: 1 1 280px;
+  max-width: min(100%, 440px);
+  min-width: min(100%, 260px);
+}
+
+@media (max-width: 640px) {
+  .org-subtree__children:has(> .org-cluster:nth-child(2)) > .org-cluster {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 .org-subtree--leaf {
   display: flex;
   justify-content: center;
