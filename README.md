@@ -61,10 +61,11 @@ git remote add origin https://github.com/YOUR_USERNAME/employee-directory.git
 git push -u origin main
 ```
 
-3. **Turn on GitHub Pages with Actions**  
+3. **Turn on GitHub Pages with Actions (do this before expecting a green deploy)**  
    - Repo → **Settings** → **Pages**  
    - Under **Build and deployment** → **Source**, choose **GitHub Actions** (not “Deploy from a branch”).  
-   - The first successful run of **Deploy to GitHub Pages** will publish the site.
+   - Until this is set, GitHub has no “Pages site” record for the repo; workflows that call the Pages API can fail with **Not Found**.  
+   - After it is set, run or re-run **Deploy to GitHub Pages** to publish.
 
 4. If prompted, approve the **`github-pages`** environment the first time (Settings → Environments).
 
@@ -84,6 +85,13 @@ Replace `YOUR_USERNAME` with your GitHub username.
 | `workflow_dispatch` | Manual run from the **Actions** tab |
 
 The workflow copies only publishable assets into `_site` (`index.html`, `css/`, `js/`, `favicon.svg`) and uploads that folder—no build step required.
+
+### Troubleshooting
+
+| Symptom | Fix |
+|--------|-----|
+| `configure-pages` / **Get Pages site failed** / **Not Found** | In **Settings → Pages**, set **Source** to **GitHub Actions**, then re-run the workflow. (This repo’s workflow does not use `configure-pages`; older copies may have.) |
+| Deploy job fails before any custom step | Ensure step 3 above is done and the **`github-pages`** environment is allowed if your org requires approval. |
 
 ## Updating employee data
 
