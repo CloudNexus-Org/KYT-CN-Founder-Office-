@@ -2,6 +2,7 @@
 /**
  * Know Your Team (CN Founder's Office) — data, search, and render.
  * Groups: Leadership, Technology (Founder's Office), Revenue Operations.
+ * Org chart: RevOps reports to CTO (Yash) under CEO.
  */
 
 (function () {
@@ -117,14 +118,16 @@
       {
         type: "person",
         id: "yash",
-        children: [{ type: "person", id: "shoaib-akhtar", children: [] }],
-      },
-      {
-        type: "cluster",
-        title: "Revenue Operations",
         children: [
-          { type: "person", id: "aryan-patel", children: [] },
-          { type: "person", id: "satyam-tiwari", children: [] },
+          { type: "person", id: "shoaib-akhtar", children: [] },
+          {
+            type: "cluster",
+            title: "Revenue Operations",
+            children: [
+              { type: "person", id: "aryan-patel", children: [] },
+              { type: "person", id: "satyam-tiwari", children: [] },
+            ],
+          },
         ],
       },
     ],
