@@ -109,7 +109,29 @@
 
   const GROUP_ORDER = ["Leadership", "Technology", "Revenue Operations"];
 
+  /** Org tree for the chart (employee ids must exist in EMPLOYEES). */
+  const ORG_TREE = {
+    type: "person",
+    id: "kaustubh-singh",
+    children: [
+      {
+        type: "person",
+        id: "yash",
+        children: [{ type: "person", id: "shoaib-akhtar", children: [] }],
+      },
+      {
+        type: "cluster",
+        title: "Revenue Operations",
+        children: [
+          { type: "person", id: "aryan-patel", children: [] },
+          { type: "person", id: "satyam-tiwari", children: [] },
+        ],
+      },
+    ],
+  };
+
   const root = document.getElementById("directory-root");
+  const orgChartRoot = document.getElementById("org-chart-root");
   const searchInput = document.getElementById("search-input");
   const searchStatus = document.getElementById("search-status");
   const SOCIAL_LINKS = {
@@ -137,6 +159,85 @@
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
+  }
+
+  /**
+   * @param {string} id
+   * @returns {Employee | undefined}
+   */
+  function getEmployeeById(id) {
+    return EMPLOYEES.find((e) => e.id === id);
+  }
+
+  /**
+   * @param {Employee} emp
+   * @returns {string}
+   */
+  function orgNodeCardHtml(emp) {
+    const imgSrc = emp.photoUrl || avatarUrl(emp.name);
+    return `
+      <a class="org-node" href="#profile-${escapeHtml(emp.id)}">
+        <img
+          class="org-node__photo"
+          src="${escapeHtml(imgSrc)}"
+          alt=""
+          width="56"
+          height="56"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="org-node__name">${escapeHtml(emp.name)}</span>
+        <span class="org-node__role">${escapeHtml(emp.role)}</span>
+      </a>
+    `;
+  }
+
+  /**
+   * @param {{ type: string, id?: string, title?: string, children?: unknown[] }} node
+   * @returns {string}
+   */
+  function renderOrgNode(node) {
+    if (node.type === "cluster") {
+      const inner = node.children.map(renderOrgNode).join("");
+      return `
+        <div class="org-cluster">
+          <p class="org-cluster__title">${escapeHtml(node.title)}</p>
+          <div class="org-cluster__row">${inner}</div>
+        </div>
+      `;
+    }
+    const emp = getEmployeeById(node.id);
+    if (!emp) return "";
+    const card = orgNodeCardHtml(emp);
+    const kids = node.children;
+    if (!kids || kids.length === 0) {
+      return `<div class="org-subtree org-subtree--leaf">${card}</div>`;
+    }
+    const childrenHtml = kids.map(renderOrgNode).join("");
+    return `
+      <div class="org-subtree">
+        <div class="org-subtree__parent">${card}</div>
+        <div class="org-subtree__stem" aria-hidden="true"></div>
+        <div class="org-subtree__children">${childrenHtml}</div>
+      </div>
+    `;
+  }
+
+  function renderOrgChart() {
+    if (!orgChartRoot) return;
+    const body = renderOrgNode(ORG_TREE);
+    orgChartRoot.innerHTML = `
+      <section id="org-chart" class="org-chart-section" aria-labelledby="org-chart-heading">
+        <div class="section-heading org-chart-section__heading">
+          <h2 class="section-heading__title" id="org-chart-heading">Organization chart</h2>
+        </div>
+        <p class="org-chart-section__note">
+          Reporting lines are illustrative. Select a person to jump to their full profile below.
+        </p>
+        <div class="org-chart" aria-label="Team organization">${body}</div>
+      </section>
+    `;
+    orgChartRoot.setAttribute("aria-busy", "false");
   }
 
   /**
@@ -195,7 +296,7 @@
       : `<p class="employee-card__bio employee-card__bio--placeholder">Professional introduction not provided yet.</p>`;
 
     return `
-      <article class="employee-card" data-employee-id="${escapeHtml(emp.id)}">
+      <article class="employee-card" id="profile-${escapeHtml(emp.id)}" data-employee-id="${escapeHtml(emp.id)}">
         <div class="employee-card__top">
           <div class="employee-card__photo-wrap">
             <img
@@ -336,6 +437,8 @@
   }
 
   function init() {
+    renderOrgChart();
+
     const run = () => {
       const q = searchInput ? searchInput.value : "";
       const filtered = filterEmployees(EMPLOYEES, q);
