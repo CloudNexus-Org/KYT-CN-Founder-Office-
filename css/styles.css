@@ -285,6 +285,7 @@ body {
 
 /* —— Employee card —— */
 .employee-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--color-surface);
@@ -292,11 +293,13 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   overflow: hidden;
+  transform-origin: center center;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .employee-card:hover {
-  transform: translateY(-4px);
+  z-index: 3;
+  transform: translateY(-8px) scale(1.045);
   box-shadow: var(--shadow-hover);
   border-color: rgba(0, 174, 239, 0.45);
 }
