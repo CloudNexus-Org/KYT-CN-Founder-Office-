@@ -24,12 +24,12 @@
       timezone: "Full-time",
       skills: [],
       bio: null,
-      photoUrl: null,
+      photoUrl: "assets/kaustubh-singh.png",
     },
     {
       id: "yash",
       group: "Technology",
-      name: "Yash",
+      name: "Yash Singh",
       role: "CTO",
       department: "Founder's Office",
       location: "Hyderabad",
@@ -49,7 +49,7 @@
       ],
       bio:
         "Passionate technologist focused on scalable solutions and innovation. Inspired by football mindset—consistency, teamwork, and high performance. Combines strategic thinking with hands-on execution.",
-      photoUrl: null,
+      photoUrl: "assets/yash-singh.png",
     },
     {
       id: "shoaib-akhtar",
@@ -65,7 +65,7 @@
       skills: ["Data Engineering", "Data Science"],
       bio:
         "Technology leader focused on innovation, learning, and building high-performing teams.",
-      photoUrl: null,
+      photoUrl: "assets/shoaib-akhtar.png",
     },
     {
       id: "aryan-patel",
@@ -87,7 +87,7 @@
       ],
       bio:
         "Focused on solving operational challenges and driving revenue growth through process improvements and performance tracking.",
-      photoUrl: null,
+      photoUrl: "assets/aryan-patel.png",
     },
     {
       id: "satyam-tiwari",
@@ -103,7 +103,7 @@
       skills: ["RevOps", "Data Analysis", "Pipeline Management", "Process Optimization"],
       bio:
         "Driven RevOps professional aligning teams and leveraging data for scalable growth.",
-      photoUrl: null,
+      photoUrl: "assets/satyam-tiwari.png",
     },
   ];
 
