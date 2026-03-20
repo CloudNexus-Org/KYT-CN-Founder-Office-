@@ -28,7 +28,7 @@
     },
     {
       id: "yash",
-      group: "Technology",
+      group: "Leadership",
       name: "Yash Singh",
       role: "CTO",
       department: "Founder's Office",
