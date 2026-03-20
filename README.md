@@ -1,12 +1,12 @@
 <!-- AI assisted development -->
 
-# Employee Directory
+# Know your team — CN Founder's Office
 
-A static, framework-free **employee directory** with search, grouped sections, and responsive profile cards. Built with HTML, CSS, and JavaScript.
+A static, framework-free **team directory** (CloudNexus) with search, grouped sections, and responsive profile cards. Built with HTML, CSS, and JavaScript.
 
 ## Features
 
-- Card-based layout with light theme and subtle shadows  
+- Card-based layout with dark theme and subtle shadows  
 - **Search** across name, role, department, location, and skills  
 - **Sections**: Leadership, Technology, Revenue Operations  
 - **Google Fonts**: Plus Jakarta Sans  

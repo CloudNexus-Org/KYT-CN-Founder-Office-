@@ -1,6 +1,6 @@
 // AI assisted development
 /**
- * Employee Directory — data, search, and render.
+ * Know your team (CN Founder's Office) — data, search, and render.
  * Groups: Leadership, Technology (Founder's Office), Revenue Operations.
  */
 
