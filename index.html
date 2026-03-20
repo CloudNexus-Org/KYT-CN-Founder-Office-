@@ -3,6 +3,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- GitHub Pages project sites are served under /repo-name/. Without <base>, relative
+         asset URLs can resolve to the domain root (404), so the stylesheet never loads. -->
+    <script>
+      (function () {
+        var host = location.hostname;
+        if (!/\.github\.io$/i.test(host)) return;
+        var parts = location.pathname.split("/").filter(Boolean);
+        if (!parts.length) return;
+        var repo = parts[0];
+        if (/\.html?$/i.test(repo)) return;
+        var b = document.createElement("base");
+        b.href = "/" + repo + "/";
+        document.head.appendChild(b);
+      })();
+    </script>
+    <!-- Fallback if main.css fails to load (still read dark UI intent) -->
+    <style>
+      html {
+        background-color: #000;
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -33,7 +60,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=2" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to directory</a>
@@ -78,6 +105,6 @@
       <p><span class="site-footer__brand">CloudNexus</span> · Internal directory</p>
     </footer>
 
-    <script src="js/app.js" defer></script>
+    <script src="js/app.js?v=2" defer></script>
   </body>
 </html>

@@ -91,6 +91,7 @@ The workflow copies only publishable assets into `_site` (`index.html`, `css/`, 
 
 | Symptom | Fix |
 |--------|-----|
+| **Light / unstyled page** on `*.github.io/repo-name/` | Project Pages need assets under `/repo-name/`. This site injects a `<base>` for `*.github.io` so `css/` and `js/` load correctly. Hard-refresh (Ctrl+Shift+R / Cmd+Shift+R) or clear cache. |
 | `configure-pages` / **Get Pages site failed** / **Not Found** | In **Settings → Pages**, set **Source** to **GitHub Actions**, then re-run the workflow. (This repo’s workflow does not use `configure-pages`; older copies may have.) |
 | Deploy job fails before any custom step | Ensure step 3 above is done and the **`github-pages`** environment is allowed if your org requires approval. |
 
