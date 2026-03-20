@@ -238,7 +238,8 @@ body {
 /* In-page anchors clear sticky header */
 [id^="profile-"],
 #org-chart,
-#team-directory {
+#team-directory,
+#about-cloudnexus {
   scroll-margin-top: 6.5rem;
 }
 
@@ -285,6 +286,141 @@ body {
   color: var(--color-text);
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--color-border);
+}
+
+/* —— About / Who we are —— */
+.about-company {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-company__page-title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 174, 239, 0.25);
+}
+
+.about-company__block {
+  margin-bottom: 2.25rem;
+}
+
+.about-company__block:last-child {
+  margin-bottom: 0;
+}
+
+.about-company__block p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 52rem;
+}
+
+.about-company__block p:last-child {
+  margin-bottom: 0;
+}
+
+.about-company__lead {
+  font-size: 1.02rem !important;
+  color: var(--color-text) !important;
+}
+
+.about-company__heading {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.about-company__intro {
+  margin-bottom: 1.25rem !important;
+}
+
+.about-company__feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 52rem;
+}
+
+.about-company__feature-list li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-company__icon {
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.about-company__icon--title {
+  margin-right: 0.35rem;
+}
+
+.about-company__feature-body {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.about-company__feature-body strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.about-company__vm {
+  margin-bottom: 1.75rem;
+  max-width: 52rem;
+}
+
+.about-company__vm:last-child {
+  margin-bottom: 0;
+}
+
+.about-company__subheading {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
+.about-company__vm p {
+  margin-bottom: 0.75rem;
+}
+
+.about-company__mission-list {
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.about-company__mission-list li {
+  margin-bottom: 0.65rem;
+}
+
+.about-company__mission-list li:last-child {
+  margin-bottom: 0;
 }
 
 .org-chart-root[aria-busy="true"] {
