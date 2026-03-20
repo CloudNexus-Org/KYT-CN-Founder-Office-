@@ -33,7 +33,7 @@
       role: "CTO",
       department: "Founder's Office",
       location: "Hyderabad",
-      phone: "9098964288",
+      phone: "+91 90989 64288",
       telHref: "tel:+919098964288",
       doj: "18 Jan 2025",
       timezone: "Full-time",
@@ -58,7 +58,7 @@
       role: "Technical Head",
       department: "Founder's Office",
       location: "Hyderabad",
-      phone: "8770569958",
+      phone: "+91 87705 69958",
       telHref: "tel:+918770569958",
       doj: "21 Jan 2025",
       timezone: "Full-time",
@@ -72,9 +72,9 @@
       group: "Revenue Operations",
       name: "Aryan Patel",
       role: "RevOps",
-      department: "Revenue Operations",
+      department: "Founder's Office",
       location: "Hyderabad",
-      phone: "+91 6263774189",
+      phone: "+91 62637 74189",
       telHref: "tel:+916263774189",
       doj: "20 Jan 2025",
       timezone: "Full-time",
@@ -96,7 +96,7 @@
       role: "RevOps",
       department: "Founder's Office",
       location: "Hyderabad",
-      phone: "8305412608",
+      phone: "+91 83054 12608",
       telHref: "tel:+918305412608",
       doj: "21 Jul 2025",
       timezone: "Full-time",
@@ -112,6 +112,12 @@
   const root = document.getElementById("directory-root");
   const searchInput = document.getElementById("search-input");
   const searchStatus = document.getElementById("search-status");
+  const SOCIAL_LINKS = {
+    linkedin: "https://www.linkedin.com/company/cloudnexusorg/?viewAsMember=true",
+    twitter: "https://twitter.com/",
+    facebook: "https://www.facebook.com/",
+    instagram: "https://www.instagram.com/cloudnexus.in/",
+  };
 
   /**
    * Placeholder avatar (initials) — no external photo required.
@@ -235,6 +241,32 @@
             <p class="employee-card__skills-title">Introduction</p>
             ${bioHtml}
           </div>
+          <nav class="employee-card__socials" aria-label="${escapeHtml(emp.name)} social links">
+            <a href="${escapeHtml(SOCIAL_LINKS.linkedin)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(emp.name)} LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.03 2.03 0 0 0 3.2 5.03c0 1.12.91 2.03 2.03 2.03a2.03 2.03 0 1 0 .02-4.06ZM20.8 13.4c0-3.3-1.76-4.84-4.1-4.84-1.89 0-2.73 1.04-3.2 1.77V8.5h-3.38V20h3.38v-6.02c0-1.58.3-3.11 2.26-3.11 1.94 0 1.97 1.82 1.97 3.22V20H21v-6.6h-.2Z"/>
+              </svg>
+              <span class="visually-hidden">LinkedIn</span>
+            </a>
+            <a href="${escapeHtml(SOCIAL_LINKS.twitter)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(emp.name)} Twitter / X" title="Twitter / X">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.9 3h2.9l-6.3 7.2L23 21h-5.9l-4.6-6.3L7 21H4.1l6.7-7.7L1.5 3h6l4.2 5.8L18.9 3Zm-1 16h1.6L6.6 4.9H5l12.9 14.1Z"/>
+              </svg>
+              <span class="visually-hidden">Twitter / X</span>
+            </a>
+            <a href="${escapeHtml(SOCIAL_LINKS.facebook)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(emp.name)} Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.4 21v-8h2.7l.4-3.1h-3.1V8c0-.9.2-1.6 1.5-1.6h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4v2.2H8V13h2.5v8h2.9Z"/>
+              </svg>
+              <span class="visually-hidden">Facebook</span>
+            </a>
+            <a href="${escapeHtml(SOCIAL_LINKS.instagram)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(emp.name)} Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9A3.1 3.1 0 1 1 12 8.9a3.1 3.1 0 0 1 0 6.2Zm6.1-8.1a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Zm3.1 1.1c-.1-1.4-.4-2.6-1.4-3.7S17.5 3.1 16.1 3c-1.5-.1-6.7-.1-8.2 0-1.4.1-2.6.4-3.7 1.4S3.1 6.5 3 7.9c-.1 1.5-.1 6.7 0 8.2.1 1.4.4 2.6 1.4 3.7s2.3 1.3 3.7 1.4c1.5.1 6.7.1 8.2 0 1.4-.1 2.6-.4 3.7-1.4s1.3-2.3 1.4-3.7c.1-1.5.1-6.7 0-8.2Zm-1.9 10c-.3.8-.9 1.4-1.7 1.7-1.2.5-4 .4-5.6.4s-4.4.1-5.6-.4a2.8 2.8 0 0 1-1.7-1.7c-.5-1.2-.4-4-.4-5.6s-.1-4.4.4-5.6c.3-.8.9-1.4 1.7-1.7 1.2-.5 4-.4 5.6-.4s4.4-.1 5.6.4c.8.3 1.4.9 1.7 1.7.5 1.2.4 4 .4 5.6s.1 4.4-.4 5.6Z"/>
+              </svg>
+              <span class="visually-hidden">Instagram</span>
+            </a>
+          </nav>
         </div>
       </article>
     `;
