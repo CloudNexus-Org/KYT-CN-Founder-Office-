@@ -27,11 +27,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare site bundle
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
         run: |
-          mkdir -p _site
-          cp index.html _site/
-          cp -r css js assets _site/
+          npm ci
+
+      - name: Build app
+        run: |
+          npm run build
 
       # configure-pages omitted: it calls GET /repos/.../pages and returns 404 until
       # Settings → Pages → Source is set to "GitHub Actions". This static site
@@ -40,7 +48,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment

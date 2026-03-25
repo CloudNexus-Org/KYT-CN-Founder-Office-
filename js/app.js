@@ -155,7 +155,7 @@
    */
   function avatarUrl(name) {
     const enc = encodeURIComponent(name);
-    return `https://api.dicebear.com/7.x/initials/svg?seed=${enc}&fontFamily=sans-serif&fontSize=42&backgroundType=gradientLinear`;
+    return `https://api.dicebear.com/7.x/initials/svg?seed=${enc}&fontFamily=sans-serif&fontSize=42&backgroundType=solid`;
   }
 
   /**
